@@ -1,4 +1,4 @@
-import {list} from "../main"
+export const list = document.querySelector(".gallery")
 
 export function createMarkup(array){
     return array.map(element => `<li class="gallery-item">
@@ -12,8 +12,8 @@ export function createMarkup(array){
       <p class="gallery-text">Downloads<span>${element.downloads}</span></p>
     </div>
   </li>`).join(' ')
-  }
-
+}
+  
   export function rendering(array){
-    return list.innerHTML = createMarkup(array) 
-  }
+    list.insertAdjacentHTML("beforeend", createMarkup(array))
+}

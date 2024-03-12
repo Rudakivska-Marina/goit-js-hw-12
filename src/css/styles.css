@@ -158,7 +158,6 @@ a {
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: #fff;
-  opacity: 80%;
 }
 
 .form button:hover {
@@ -218,4 +217,28 @@ a {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.padding-button {
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 126px;
+  height: 40px;
+  background: #2e2f42;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: auto;
+  margin-top: 24px;
+  display: block;
+}
+
+.padding-button:hover {
+  background: #242424;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
