@@ -1,0 +1,12 @@
+import{S as p,i}from"./assets/vendor-5b791d57.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function a(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function n(e){if(e.ep)return;e.ep=!0;const r=a(e);fetch(e.href,r)}})();function d(s){const t="https://pixabay.com",a="/api/",n="42798997-7eb979f96087e0185c9def0a6",e=new URLSearchParams({key:n,q:s,image_type:"photo",orientation:"horizontal",safesearch:!0,per_page:21});return fetch(`${t}${a}?${e}`).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()})}function f(s){return s.map(t=>`<li class="gallery-item">
+    <a href="${t.largeImageURL}" class="gallery-link">
+    <img class="gallery-img" src="${t.webformatURL}" alt="${t.tags}" loading="lazy"/>
+    </a>
+    <div class="gallery-container">
+    <p class="gallery-text">Likes<span>${t.likes}</span></p>
+      <p class="gallery-text">Views<span>${t.views}</span></p>
+      <p class="gallery-text">Comments<span>${t.comments}</span></p>
+      <p class="gallery-text">Downloads<span>${t.downloads}</span></p>
+    </div>
+  </li>`).join(" ")}function g(s){return u.innerHTML=f(s)}const l=document.querySelector(".loader"),u=document.querySelector(".gallery"),m=document.querySelector("form"),c=document.querySelector("input");function y(){l.classList.remove("is-hidden")}function h(){l.classList.add("is-hidden")}const L=new p(".gallery a",{captionsData:"alt",captionDelay:"250"});m.addEventListener("submit",w);function w(s){s.preventDefault(),y(),u.innerHTML="";const t=s.currentTarget.elements.field.value;t?d(t).then(a=>{a.total!==0?(g(a.hits),L.refresh(),c.value=""):(i.warning({message:"Sorry, there are no images matching your search query. Please try again!"}),c.value="")}).catch(a=>{i.warning({message:"Ups, something wrong bad. Please try again!"})}).finally(()=>{h()}):i.warning({message:"Please enter the name of the picture!"})}
+//# sourceMappingURL=commonHelpers.js.map
